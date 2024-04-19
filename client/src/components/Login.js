@@ -9,11 +9,11 @@ const Login = () => {
   const [isSigningIn, setIsSigningIn] = useState(false)
   // Function to handle form submission
   const handleLogin = async (e) => {
-    e.preventDefault(); 
-    e.preventDefault()
+    e.preventDefault();
     if(!isSigningIn) {
         setIsSigningIn(true)
-        result =await doSignInWithEmailAndPassword(email, password)
+        let result =await doSignInWithEmailAndPassword(email, password);
+        console.log(result);
         if(result)
       window.location.href = '/dashboard'; 
     else{
@@ -21,7 +21,7 @@ const Login = () => {
     }
         // doSendEmailVerification()s
     }
-    console.log('Logging in with:', email, password);
+    console.log('Logging in with:', email);
   };
 
 

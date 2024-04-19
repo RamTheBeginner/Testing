@@ -18,11 +18,11 @@ const SignUp = () => {
    
     if(!isRegistering) {
       setIsRegistering(true)
-      result = await doCreateUserWithEmailAndPassword(email, password)
+      let result = await doCreateUserWithEmailAndPassword(email, password)
       if(result)
       window.location.href = '/dashboard'; 
   }
-    console.log('Signing up with:', email, password, fullName, phoneNumber);
+    console.log('Signing up with:', email, fullName, phoneNumber);
   };
 
   return (
