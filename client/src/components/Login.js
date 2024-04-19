@@ -14,7 +14,7 @@ const Login = () => {
     if(!isSigningIn) {
         setIsSigningIn(true)
         await doSignInWithEmailAndPassword(email, password)
-        // doSendEmailVerification()
+        // doSendEmailVerification()s
     }
     console.log('Logging in with:', email, password);
   };
