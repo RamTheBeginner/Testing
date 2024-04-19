@@ -4,10 +4,12 @@ import './App.css';
 import Home from './components/Home';
 import SignUp from './components/SignUp';
 import Login from './components/Login';
+import { AuthProvider } from "./contexts/auth";
 function App() {
  
   return (
     <>
+    <AuthProvider>
       <Router>
         <Routes>
           <Route exact path="/" element={<Home />} />
@@ -15,6 +17,7 @@ function App() {
           <Route exact path="/login" element={<Login />} />
         </Routes>
     </Router>
+    </AuthProvider>
     </>
     
   );

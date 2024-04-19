@@ -1,17 +1,25 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom'; // Assuming you are using React Router for navigation
-
+import { useAuth } from '../contexts/auth'
+import { doCreateUserWithEmailAndPassword } from '../../src/config/auth'
 const SignUp = () => {
   // State variables to store user input
+ 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [fullName, setFullName] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
-
+  const [isRegistering, setIsRegistering] = useState(false)
+  const { userLoggedIn } = useAuth();
+  console.log(userLoggedIn);
   // Function to handle form submission
-  const handleSignUp = (e) => {
-    e.preventDefault(); // Prevents default form submission behavior
-    // Here, you can perform validation and signup logic
+  const handleSignUp = async (e) => {
+    e.preventDefault(); 
+   
+    if(!isRegistering) {
+      setIsRegistering(true)
+      await doCreateUserWithEmailAndPassword(email, password)
+  }
     console.log('Signing up with:', email, password, fullName, phoneNumber);
   };
 

@@ -1,23 +1,26 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom'; // Assuming you are using React Router for navigation
-
+import { doSignInWithEmailAndPassword, doSignInWithGoogle } from '../config/auth'
+import { useAuth } from '../contexts/auth'
 const Login = () => {
   // State variables to store user input
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
+  const [isSigningIn, setIsSigningIn] = useState(false)
   // Function to handle form submission
-  const handleLogin = (e) => {
-    e.preventDefault(); // Prevents default form submission behavior
-    // Here, you can perform validation and login logic
+  const handleLogin = async (e) => {
+    e.preventDefault(); 
+    e.preventDefault()
+    if(!isSigningIn) {
+        setIsSigningIn(true)
+        await doSignInWithEmailAndPassword(email, password)
+        // doSendEmailVerification()
+    }
     console.log('Logging in with:', email, password);
   };
 
-  // Function to handle signup
-  const handleSignup = () => {
-    // Here, you can navigate to the signup page or display a signup form
-    console.log('Navigating to signup page...');
-  };
+
+
 
   return (
     <div className="flex items-center justify-center h-screen" style={{backgroundImage: "url('/konUtBV6RuyGBNJwURt5dQ.webp')", backgroundSize: "cover"}}>
