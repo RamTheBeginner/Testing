@@ -13,7 +13,12 @@ const Login = () => {
     e.preventDefault()
     if(!isSigningIn) {
         setIsSigningIn(true)
-        await doSignInWithEmailAndPassword(email, password)
+        result =await doSignInWithEmailAndPassword(email, password)
+        if(result)
+      window.location.href = '/dashboard'; 
+    else{
+      setIsSigningIn(false);
+    }
         // doSendEmailVerification()s
     }
     console.log('Logging in with:', email, password);
