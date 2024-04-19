@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom'; // Assuming you are using React Router for navigation
 import { doSignInWithEmailAndPassword, doSignInWithGoogle } from '../config/auth'
-import { useAuth } from '../contexts/auth'
+
+
 const Login = () => {
   // State variables to store user input
   const [email, setEmail] = useState('');
@@ -10,18 +11,21 @@ const Login = () => {
   // Function to handle form submission
   const handleLogin = async (e) => {
     e.preventDefault(); 
-    e.preventDefault()
+   
     if(!isSigningIn) {
         setIsSigningIn(true)
-        result =await doSignInWithEmailAndPassword(email, password)
-        if(result)
-      window.location.href = '/dashboard'; 
+        let result =await doSignInWithEmailAndPassword(email, password)
+        if(result){
+
+
+         window.location.href = '/dashboard'; 
+        }
     else{
       setIsSigningIn(false);
     }
         // doSendEmailVerification()s
     }
-    console.log('Logging in with:', email, password);
+   
   };
 
 
