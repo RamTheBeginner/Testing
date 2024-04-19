@@ -10,8 +10,7 @@ const Login = () => {
   const [isSigningIn, setIsSigningIn] = useState(false)
   // Function to handle form submission
   const handleLogin = async (e) => {
-    e.preventDefault(); 
-   
+    e.preventDefault();
     if(!isSigningIn) {
         setIsSigningIn(true)
         let result =await doSignInWithEmailAndPassword(email, password)
