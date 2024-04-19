@@ -49,7 +49,8 @@ const Login = () => {
         </form>
         <div className="text-center mt-4">
           {/* Signup link/button */}
-          <button onClick={handleSignup} className="text-blue-500 hover:underline">Sign Up</button>
+          <Link to="/signup" className="text-blue-500 hover:underline">Sign Up</Link>
+
         </div>
       </div>
     </div>
